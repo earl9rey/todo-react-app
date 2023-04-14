@@ -5,8 +5,7 @@ class AddTodo extends React.Component {
         super(props);
         this.state ={item :{title:""}};
         this.add = props.add;// props 의 함수를 this.add 에 연결, props에는 상위 컴포넌트(App.js)의 함수, 매개변수가 들어 있음. 
-    }
-    onInputChange =(e)=>{
+    } onInputChange =(e)=>{
         const thisItem =this.state.item;
         thisItem.title = e.target.value;
         this.setState({item:thisItem});
@@ -15,9 +14,8 @@ class AddTodo extends React.Component {
 
  onButtonClick =()=>{
     this.add(this.state.item);
-    this.setState({item:{title:""}});// text 값을 추가하고 입력 필드는 초기화시킨다.
+    this.setState({item:{title:""}});// text 값을 추가하고 입력 필드는 초기화시킨다. 
 }
-
  enterKeyEventHandler =(e)=>{
     if(e.key =='Enter'){
         this.onButtonClick();
@@ -29,7 +27,7 @@ render(){
  <Grid container>
  <Grid xs={11} md={11} item style={{paddingRight:16}}>
  <TextField 
-placehoder="Add Todo here" 
+placehoder="Add Todo here"
 fullWidth 
 onChange={this.onInputChange}
 value={this.state.item.title}
